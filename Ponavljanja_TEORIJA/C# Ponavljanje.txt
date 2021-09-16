@@ -1,0 +1,382 @@
+Matematički zapisa:
+
+5 + 8 = 13
+
+Programski zapis:
+
+13 = 5 + 8
+
+1.)
+x + 8 = 13
+x = 13 - 8
+x = 5
+
+13 = 8 + x
+
+- VARIJABLA - mjesto u memoriji rezervirano za pohranu podataka ovisno o tipu podataka
+
+- INT (int, integer) - za cijele brojeve ( 3, 20, -2, 975211114, 0)
+
+npr.
+int X = 3
+int Y = -2
+int Z = 0
+
+Koliki je Z ako se u njega sprema zbroj X i Y?
+Z = X + Y
+
+- FLOAT - float - decimalni brojevi (5.3, 4.573210, 0.2, -3.4, 0.0) 
+	- kada se koristi float obavezno je dodati f na kraj broja
+		- npr. 3.44f, 0f, -22.1f, 6f, .25f
+
+3.) Imate 3 varijable decimalnih brojeva, "mama", "tata" i "beba".
+Neka se u bebu spremaju zbroj vrijednosti mame i tate
+
+float mama = 5.6f
+float tata = 25f (25.0f)
+float beba = 0f
+
+beba = mama + tata
+
+13.) Na početku vaš lik ima 52 mane, iskoristili ste ability koji košta 4.5 mana i potom ste ga iskoristili još 3 puta.
+Poslje toga popijete potion koji vam da 10 mana.
+Koliko imate mane? Napišite programski
+
+float mana = 52f
+float ability = 4.5f
+int potion = 10
+
+mana -= ability
+mana -= ability * 3
+mana += potion
+ili
+mana = mana - ability
+mana = mana - ability * 3
+mana = mana + potion
+
+- Točka zarez " ; "se piše na kraju linije naredbe
+
+- Što je to "null", a što je to "0"?
+int rola = 0;
+int rola;
+
+int rollaPapira = 5;
+maknemo papire sa role i onda bude
+rollaPapira = 0;
+maknemo li i rolu
+rollaPapira; (Njegova vrijednost je null,, odnosno brojčano 0)
+
+22.) Imate 10 pokrajina. Svaka pokrajina po potezu daje 1 zlatnik. Nakon 3 poteza si izgubio 50% pokrajina. Prošlo je još 2 poteza. Koliko imaš zlatnika na kraju? 
+Napišite programski.
+
+int pokrajina = 10;
+int zlatnik;
+
+zlatnik += pokrajina * 3 * 1; (nakon 3 poteza imamo 30 zlatnika)
+pokrajina = (int)(pokrajina * 0.5f); (i sada imamo 5 pokrajina)
+zlatnik += pokrajina * 2 * 1; (nakon 2 još poteza imamo 40 zlatnika)
+
+- Kada ispred neke matematičke naredbe stavite (int) rezultat će se spremiti u intu tako što će ZANEMARITI float vrijednost, dakle NEĆE zaokružiti
+
+
+marko -= 1; || marko--;
+pero += 1; || pero++;
+*NAPOMENA* - možete napisati i: marko--; i pero++; kada se povećava ili smanjuje za 1 onda možete napisati ++ umjesto +1 ili - umjesto -1
+
+
+**PISANJE KOMENTARA**
+- Obavezno
+- koristi se za druge ljude kada čitaju vaš kod
+- Korisno ako neko vrijeme niste čitali kod
+- Programeri koji ne koriste komentare kažu "Prvo smo Bog i ja znali kako radi ovaj kod, sada zna samo Bog"
+- Komentari se pišu sa "//" i pišete ih iznad ili u redu naredbe/linije/metode na koju se odnose
+- Komentiranje više redova od jednput
+
+npr. 
+
+int health = 100; // varijabla za Health
+int dmg = 25; //varijabla za dmg od enemy zombija
+//varijabla za dmg od enemy vampira
+int dmg2 = 30;
+
+npr. Komentiranje više redova - koristi se kada kod radi, ali se našao/traži se bolji način pa ga se zakomentira da se ne odvija u programu
+
+/*
+float Bana = 89f;
+
+Bana = Bana*2 - 45 + 3.9f;
+*/
+
+
+**UVIJETI**
+Što je uvijet?
+- Uvijet je skup riječi koje govore što se treba ispuniti kako bi se izvršio niz/red naredbi
+-Primjeri uvijeta:
+	- AKO - if
+	- DOK - while
+	- Kada - when (ne postoji, primjera radi
+	- ZA - for
+- kako se zadovoljava uvijet? Sa provjerom znakova vrijednosti:
+== jednako je - provjerava jesu li vrijednosti jednake
+= dodjeljuje vrijednost
+!= različito je
+|| (alt Gr + W) ili - ili je jedna vrijednost točna/istinita ili druga
+&& i - obje vrijednosti moraju biti točne/istinite kako bi bilo točno
+> veće od
+< manje od
+<= manje ili jednako od
+>= veće ili jednako od
+
+primjeri na if petlji:
+
+if(1 + 1 == 2) --> točno
+if(2 + 3 != 4) --> točno
+if(18 > 19) --> Laž
+if(21 <= 21) --> točno
+
+kao da piše:
+istina -> 1+1=2
+laž -> 5+5=11
+if(istina || laž) -> istina
+if(istina || istina) -> istina
+if(laž || istina) -> istina
+if(laž || laž) -> istina
+if(istina && istina) -> istina
+if(istina && laž) -> laž
+if(laž && laž) -> laž
+
+if(istina && istina || laž) -> istina
+
+
+*VAR vrsta varijable
+
+var:
+- vrsta varijable koja se prilagođava unosu
+- ne može se definirati u početku
+- koristi se samo unutar neke petlje/metode za privremenu vrijednost
+
+npr.
+Neka se rezultat množenja x i y poveća za 10 ako je x veći od 5 i spremite u varijablu rez, ali to odradite u 2 koraka
+
+float x = 10.5f;
+int y = 77;
+float rez;
+
+
+if(x > 5)
+{
+	var privremeno = x * y;
+	rez = privremeno + 10;
+}
+
+
+*Metode*
+- metoda je skup naredbi koje se trebaju odraditi u određenim uvijetima i intervalu
+
+Ključne metode u Unityu:
+
+- Awake - odvija se prije 0 (nultog) framea
+	- događa se prije stvaranja bilokakvih objekata na sceni
+	- izvršava se samo jedanput
+
+- Start - izvršava se netom prije prvog framea
+	- izvršava se samo jedanput
+
+- Update - Svaki frame se jednom izvrši
+
+-kako se piše metoda:
+
+void nazivMetode()
+{
+	linija naredbe;
+}
+
+* vidljivost metoda/varijabli
+- public - ispred vrste varijable kojoj omugucavamo da mi kao developeri možemo unositi i mjenjati vrijednost varijable u Unity Inspectoru ili pozivati iz drugih skripti
+npr. public float primjer = 4.7f;
+
+- private - stavlje se ispred varijable i onemogucava vidjljivost i promjene vrijednosti varijable iz Unity Inspectora i pozivanje iz drugi skripti. Ako ispred varijable/metode ne piše ništa, automatski je private.
+npr. private int primeric = 5; ili int primeric = 5;
+
+*Debugiranje*
+- postupak pružanja informacija developeru ima li greške i koja je greška ili ispis rada programa u konzoli
+
+- Osnovo - Debug.Log("")
+- Debug -> debugiraj (provjeri)
+- Log -> ispiši u konzoli
+- ("") - unutar navodnika tekst za ispis, poslje može varijabla za ispis (spajanje se radi sa pomoću znaka +)
+
+npr. 1.
+public int x;
+public int y;
+
+void Start()
+{
+	var rez = x * y;
+	Debug.Log("Rezultat je" + rez);
+}
+
+npr. 2.
+
+void Start()
+{
+	Debug.Log("Odvila se start metoda");
+}
+
+
+
+*Bool
+- Što je to Bool?
+- Bool je vrsta varijable koja pohranjuje u sebe isključivo 2 moguće vrijednosti, a to su točno ili netočno.
+- Može biti samo True ili False
+- Tehnički se može reći da ide 0 ili 1
+npr.
+bool banana = false;
+bool died = true;
+bool gameEnded; //Kada ne piše vrijednost onda je null, ako je null to je kao da je 0, a pošto ne može biti 0 onda je false
+bool zmajcek = false; <=> bool zmajcek;
+
+
+
+75.) Neka se zbrajaju dva javna broja, ako je njihov zbroj veci od 15 neka bool endGame postane true, ako su manji ili jednaki neka je false. Ovo napravite u drugoj, vlastitoj metodi, Ako je endGame true onda neka se ispiše u konzoli da je igra završena, a ako je false neka ispiše da si preživio.
+
+public int x;
+public int y;
+bool endGame = false; //bool endGame;
+
+void Start()
+{
+	if(x + y > 15)
+	{
+		endGame = true;
+	}
+	else
+	{
+		endGame = false;
+	}
+	
+	CheckIfEndGame();
+}
+
+void CheckIfEndGame()
+{
+	if(endGame == true) //if(endGame) -> kada je sam odnosi se na true
+	{
+		Debug.Log("Igra je završila");
+	}
+	else if(endGame == false) //if(!endGame) -> kada je usklicnik ispred samog boola odnosi se na false
+	{
+		Debug.Log("Preživio si");
+	}
+}
+
+
+*Nova petlja - For petlja
+
+for => dok je uvijet zadovoljen obavlja naredbe
+int i => brojac, ne mora se zvati i, najcešce se zove i
+uvijet => uvijet koji mora biti zadovoljen
+inkrement => utjece na brojac, naredba s kojim djelujemo na brojac na više
+dekrement => utjece na brojac, naredba s kojim djelujemo na brojac na manje
+
+nacin pisanja for petlje:
+
+for(brojac; uvijet; inkrement)
+{
+	naredba;
+}
+
+primjer:
+
+int broj_enemya = 3;
+
+void Start()
+{
+	for(int i = 0; i < broj_enemya; i++)
+	{
+		Debug.Log("Stvoren je " + i + ". enemy!");
+	}
+}
+
+
+
+** NOVA VRSTA VARIJABLE **
+
+-string 
+
+string je tekstualni zapis, mogu se zapisivati rijeci, slova, brojevi i znakovi
+
+npr.
+
+string ime = "Pero";
+string prezime = "Peric";
+string datumRodenja = "19.1.2011";
+string visina = "189 cm";
+
+
+
+WHILE PETLJA (dok petlja)
+
+odvija s dok je tvrdnja tocna
+OPASNA ZA UNITY! - ako je napisano krivo ruši (crasha) Unity, ali ne samo Unity nego u gorim situacijama može izbrisati dio projekta i/ili ugasiti racunalo
+
+Kako se piše while petlja:
+
+while(uvijet)
+{
+	naredba;
+	naredba koja utjece na uvijet;
+}
+
+*Infinity loop* - while petlja (ne samo while) koja se ponavlja u beskonacnost jer joj uvijet nikada ne može prestati vrijediti jer naredba koja utjece na nju ne radi pravilno
+
+Primjer pravilnog:
+
+int broj = 4;
+
+void Start()
+{
+	while(broj > 0)
+	{
+		Debug.Log("Broj je: " + broj);
+		broj--;
+	}
+}
+
+Primjer infinity loopa:
+
+int broj = 4;
+
+void Start()
+{
+	while(broj > 0)
+	{
+		Debug.Log("Broj je: " + broj);
+		broj++;
+	}
+}
+
+KAKO NE KORISTI WHILE PETLJU!!!
+
+bool gameOver;
+bool spawned;
+float timer;
+
+void Update()
+{
+	while(gameOver == false)
+	{
+		if(spawned == false)
+		{
+			//ucini nešto
+		}
+		else if(timer >= 2.0f)
+		{
+			timer += Time.deltaTime;
+		}
+	}
+}
+
+
+
+
