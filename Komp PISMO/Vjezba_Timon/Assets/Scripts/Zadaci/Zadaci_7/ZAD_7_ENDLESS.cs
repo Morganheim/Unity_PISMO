@@ -14,7 +14,6 @@ public class ZAD_7_ENDLESS : MonoBehaviour
     }
     private void Update()
     {
-        y = transform.position.y;
         if (Input.GetKey(KeyCode.W))
         {
             rb.constraints = RigidbodyConstraints.FreezeRotation;

@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/endless_runner.unity
+- path: Assets/colliders.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
