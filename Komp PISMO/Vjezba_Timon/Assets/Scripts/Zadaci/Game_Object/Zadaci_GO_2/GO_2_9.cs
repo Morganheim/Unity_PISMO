@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class GO_2_9 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject kocka;
+    public float timer = 5;
+    public int redniBrojKocke = 1;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            Instantiate(kocka, new Vector3(0, redniBrojKocke, 0), new Quaternion());
+            timer = 5;
+            redniBrojKocke++;
+        }
     }
 }

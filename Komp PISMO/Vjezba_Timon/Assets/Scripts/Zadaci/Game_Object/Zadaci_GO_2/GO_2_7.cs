@@ -1,18 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GO_2_7 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject kocka;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        Instantiate(kocka, Vector3.zero, new Quaternion());
     }
 }

@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class GO_2_5 : MonoBehaviour
 {
-    public GameObject sfera;
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == sfera)
+        if (other.gameObject.name == "Sfera")
         {
             this.enabled = false;
         }

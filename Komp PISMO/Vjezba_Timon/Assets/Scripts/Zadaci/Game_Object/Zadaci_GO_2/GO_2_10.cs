@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GO_2_10 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float timer = 5;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            Debug.Log("Ja sam magarac.");
+            timer = 5;
+        }
     }
 }
