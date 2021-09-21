@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class GO_2_7 : MonoBehaviour
 {
-    public GameObject kocka;
+    public GameObject prefab;
 
     private void Start()
     {
-        Instantiate(kocka, Vector3.zero, new Quaternion());
+        Instantiate(prefab, Vector3.zero, Quaternion.identity);
     }
 }

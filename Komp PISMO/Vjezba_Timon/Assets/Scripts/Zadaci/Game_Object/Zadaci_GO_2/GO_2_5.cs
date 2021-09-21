@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GO_2_5 : MonoBehaviour
 {
-
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name == "Sfera")

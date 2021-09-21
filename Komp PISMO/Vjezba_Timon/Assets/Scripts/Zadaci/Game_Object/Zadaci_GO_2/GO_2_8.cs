@@ -12,7 +12,7 @@ public class GO_2_8 : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            Instantiate(kocka, Vector3.zero, new Quaternion());
+            Instantiate(kocka, Vector3.zero, Quaternion.identity);
             timer = 10;
         }
     }
