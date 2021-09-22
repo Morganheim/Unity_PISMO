@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager_iso : MonoBehaviour
 {
     public int score;
+    public int scoreCounter;
     public int life = 5;
 
     private void Update()
@@ -18,19 +19,18 @@ public class GameManager_iso : MonoBehaviour
     public void DodajScore()
     {
         score++;
-
-        Debug.Log("<color=green>Score is: " + score + "</color> and <color=red> life is: " + life + "</color>");
+        scoreCounter++;
+        Debug.Log("<color=green>Score je: " + score + "</color> i <color=red> life je: " + life + "</color>");
     }
 
     public void MakniLife()
     {
         life--;
 
-        Debug.Log("<color=green>Score is: " + score + "</color> and <color=red> life is: " + life + "</color>");
+        Debug.Log("<color=green>Score je: " + score + "</color> i <color=red> life je: " + life + "</color>");
         if (life <= 0)
         {
             Debug.Log("<color=red>Izgubio si. Konacni score je: " + score + "</color>");
-            Application.Quit();
             Destroy(this.gameObject);
         }
     }

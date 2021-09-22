@@ -6,15 +6,27 @@ public class Enemy_Movement_iso : MonoBehaviour
 {
     public GameManager_iso gm;
     public GameObject target;
+
+    Rigidbody rb;
+
     public float speed;
 
-    [Range(1, 4)]
-    public int enemyType;
+    public bool isCapsule;
 
     private void Start()
     {
         gm = FindObjectOfType<GameManager_iso>();
         target = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody>();
+
+        if (isCapsule)
+        {
+            speed = 0.03f;
+        }
+        else if (!isCapsule)
+        {
+            speed = 0.01f;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -28,6 +40,7 @@ public class Enemy_Movement_iso : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             gm.MakniLife();
+            Destroy(this.gameObject);
         }
     }
 
@@ -35,5 +48,10 @@ public class Enemy_Movement_iso : MonoBehaviour
     {
         transform.LookAt(target.transform);
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
+
+        if (gm.life <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

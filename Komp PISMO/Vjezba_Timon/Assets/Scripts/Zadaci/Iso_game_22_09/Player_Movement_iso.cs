@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Player_Movement_iso : MonoBehaviour
 {
-    public float speed = 5;
+    public float speed = 14;
+
     Rigidbody rb;
+
+    public GameManager_iso gm;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        gm = FindObjectOfType<GameManager_iso>();
     }
 
     private void Update()
@@ -50,6 +55,11 @@ public class Player_Movement_iso : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             rb.constraints = RigidbodyConstraints.FreezePositionX;
+        }
+
+        if (gm.life <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 }
