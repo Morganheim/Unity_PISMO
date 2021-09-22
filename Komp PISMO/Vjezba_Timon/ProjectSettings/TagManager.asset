@@ -9,6 +9,7 @@ TagManager:
   - Capsule
   - Cube
   - Heal
+  - Wall
   layers:
   - Default
   - TransparentFX
