@@ -16,6 +16,12 @@ public class FallingObjects : MonoBehaviour
         //unity pretraži hiearyu i naðe koji objekt ima na sebi GameManager skritpu
         //Problem stvara ako imamo više objekata sa tom skriptom, onda ste krivo nešto napravili
         gm = FindObjectOfType<GameManager>();
+
+        transform.Rotate(Vector3.forward * 180);
+        if (isPositive)
+        {
+            transform.Rotate(Vector3.right * 90);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
