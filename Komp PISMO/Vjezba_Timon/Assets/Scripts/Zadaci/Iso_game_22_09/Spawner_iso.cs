@@ -51,10 +51,5 @@ public class Spawner_iso : MonoBehaviour
 
             timer = timerReset;
         }
-
-        if (gm.life <= 0)
-        {
-            Destroy(this);
-        }
     }
 }

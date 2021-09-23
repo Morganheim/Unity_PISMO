@@ -25,7 +25,7 @@ public class Player_Movement_iso : MonoBehaviour
         {
             rb.velocity = Vector3.forward * speed;
         }
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
         {
             rb.constraints = RigidbodyConstraints.FreezePositionZ;
         }
@@ -34,7 +34,7 @@ public class Player_Movement_iso : MonoBehaviour
         {
             rb.velocity = Vector3.forward * -speed;
         }
-        if (Input.GetKeyUp(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
         {
             rb.constraints = RigidbodyConstraints.FreezePositionZ;
         }
@@ -43,7 +43,7 @@ public class Player_Movement_iso : MonoBehaviour
         {
             rb.velocity = Vector3.right * speed;
         }
-        if (Input.GetKeyUp(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
         {
             rb.constraints = RigidbodyConstraints.FreezePositionX;
         }
@@ -52,14 +52,9 @@ public class Player_Movement_iso : MonoBehaviour
         {
             rb.velocity = Vector3.right * -speed;
         }
-        if (Input.GetKeyUp(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
         {
             rb.constraints = RigidbodyConstraints.FreezePositionX;
-        }
-
-        if (gm.life <= 0)
-        {
-            Destroy(this.gameObject);
         }
     }
 }

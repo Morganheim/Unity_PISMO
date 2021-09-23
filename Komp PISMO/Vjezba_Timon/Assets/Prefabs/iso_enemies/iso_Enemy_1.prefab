@@ -299,7 +299,6 @@ GameObject:
   - component: {fileID: 2920088372105306396}
   - component: {fileID: 8481392543766400084}
   - component: {fileID: 9063787611178894531}
-  - component: {fileID: 2711508888422330769}
   m_Layer: 0
   m_Name: iso_Enemy_1
   m_TagString: Untagged
@@ -419,15 +418,3 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!114 &2711508888422330769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6840082662179967297}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 987466e30b730d942a557121e45e3b30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

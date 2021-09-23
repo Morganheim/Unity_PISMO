@@ -7,17 +7,25 @@ public class GameManager_iso : MonoBehaviour
 {
     public GameObject[] sceneObjekti;
 
+    public GameObject player;
+
     public int score;
     public int scoreCounter;
-    public int life = 5;
+    public int life;
+    public int maxLife = 5;
 
     public Text lifeText;
     public Text scoreText;
+    public Text deathText;
+
+    public GameObject deathMenu;
 
     private void Start()
     {
+        life = maxLife;
+
         scoreText.text = "Score: " + score;
-        lifeText.text = "Life: " + life + "/5";
+        lifeText.text = "Life: " + life + "/" + maxLife;
     }
 
     private void Update()
@@ -44,7 +52,7 @@ public class GameManager_iso : MonoBehaviour
         if (life <= 0)
         {
             Debug.Log("<color=red>Izgubio si. Konacni score je: " + score + "</color>");
-            Destroy(this.gameObject);
+            DeathGame();
         }
     }
 
@@ -69,5 +77,17 @@ public class GameManager_iso : MonoBehaviour
         {
             sceneObjekti[i].SetActive(true);
         }
+        player.gameObject.SetActive(true);
+    }
+
+    public void DeathGame()
+    {
+        for (int i = 0; i < sceneObjekti.Length; i++)
+        {
+            sceneObjekti[i].SetActive(false);
+        }
+        player.gameObject.SetActive(false);
+        deathMenu.gameObject.SetActive(true);
+        deathText.text = "You died. Your final score is: " + score;
     }
 }
