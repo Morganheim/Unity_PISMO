@@ -21,11 +21,11 @@ public class Enemy_Movement_iso : MonoBehaviour
 
         if (isCapsule)
         {
-            speed = 0.03f;
+            speed = 0.1f;
         }
         else if (!isCapsule)
         {
-            speed = 0.01f;
+            speed = 0.07f;
         }
     }
 
