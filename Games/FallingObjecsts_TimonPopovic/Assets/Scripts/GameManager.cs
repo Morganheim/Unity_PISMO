@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,15 @@ public class GameManager : MonoBehaviour
     public AudioClip boom;
     public AudioSource collect;
 
+    public Text scoreText;
+    public Text lifeText;
+
+    private void Start()
+    {
+        scoreText.text = "Score: " + score;
+        lifeText.text = "Life: " + life + "/3";
+    }
+
     private void Update()
     {
         //Na escape ugasi igru
@@ -18,6 +28,9 @@ public class GameManager : MonoBehaviour
         {
             Application.Quit();
         }
+
+        //testiranje da je igra pauzirana
+        //Debug.Log(Time.deltaTime);
     }
 
     public void DodajScore()
@@ -25,6 +38,11 @@ public class GameManager : MonoBehaviour
         score++;
         collect.clip = coin;
         collect.Play();
+
+        scoreText.text = "Score: " + score;
+        //scoreText.text = score + "";
+        //scoreText.text = score.ToString();
+
         Debug.Log("<color=green>Score is: " + score + "</color> and <color=red> life is: " + life + "</color>");
     }
 
@@ -33,6 +51,9 @@ public class GameManager : MonoBehaviour
         life--;
         collect.clip = boom;
         collect.Play();
+
+        lifeText.text = "Life: " + life + "/3";
+
         Debug.Log("<color=green>Score is: " + score + "</color> and <color=red> life is: " + life + "</color>");
         if (life <= 0)
         {
@@ -40,5 +61,22 @@ public class GameManager : MonoBehaviour
             Application.Quit();
             Destroy(this.gameObject);
         }
+    }
+
+    public void ExitGame() //metoda koja je na gumbu (button) za izaci iz igre
+    {
+        Application.Quit();
+        Debug.Log("Quitting game");
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        Debug.Log("Game paused");
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
     }
 }
