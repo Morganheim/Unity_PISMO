@@ -17,9 +17,10 @@ public class Gun : MonoBehaviour
     public float accuracy;
     public float reloadTime;
     float reloadTimeReset;
-    public float recoil;
     public Camera mainCamera;
     public Camera scopeCamera;
+    public Vector3 upRecoil;
+    Vector3 originalRotation;
 
     [Header("Bullet Info:")]
     public Rigidbody bulletPrefab;
@@ -31,7 +32,10 @@ public class Gun : MonoBehaviour
     public bool singleFire = true; //0
     public bool automaticFire; //1
     public bool burstFire; //2
+    float burstAmount = 3;
     int fireMode = 0;
+
+    IEnumerator BurstShoot;
 
     private void Start()
     {
@@ -59,6 +63,10 @@ public class Gun : MonoBehaviour
             fireMode = 0;
         }
 
+        mainCamera.enabled = true;
+        scopeCamera.enabled = false;
+
+        originalRotation = transform.localEulerAngles;
     }
 
     private void Update()
@@ -69,14 +77,43 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && fireMode == 0 && currentAmmo > 0 && fireRate <= 0)
         {
             Shoot();
+            AddRecoil();
             fireRate = fireRateReset;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            StopRecoil();
         }
 
         if (Input.GetMouseButton(0) && fireMode == 1 && currentAmmo > 0 && fireRate <= 0)
         {
             Shoot();
+            AddRecoil();
             fireRate = fireRateReset;
         }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            StopRecoil();
+        }
+
+        if (Input.GetMouseButtonDown(0) && fireMode == 2 && currentAmmo > 0 && fireRate <= 0)
+        {
+            StartCoroutine(BurstShoot());
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            StopRecoil();
+        }
+        IEnumerator BurstShoot()
+        {
+            for (int i = 0; i < burstAmount; i++)
+            {
+                Shoot();
+                AddRecoil();
+                yield return new WaitForSeconds(fireRate);
+            }
+        }
+
 
         if (Input.GetKeyDown(KeyCode.R) && reloadTime <= 0)
         {
@@ -120,4 +157,15 @@ public class Gun : MonoBehaviour
     {
         ammoText.text = currentAmmo + "/" + maxAmmo;
     }
+
+    void AddRecoil()
+    {
+        transform.localEulerAngles += upRecoil;
+    }
+
+    void StopRecoil()
+    {
+        transform.localEulerAngles = originalRotation;
+    }
+    
 }
