@@ -1,0 +1,5 @@
+IENumerator je korutina, nije metoda
+
+korutina mora imati vracanje vrijednosti s nekim odstupanjem
+
+thread =dretva (nit)
